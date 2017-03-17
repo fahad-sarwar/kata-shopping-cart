@@ -1,90 +1,87 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ShoppingCartKata
 {
     [TestClass]
     public class ShoppingCartSpec
     {
+        ShoppingCart _shoppingCart;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _shoppingCart = new ShoppingCart();
+        }
+
         [TestMethod]
-        public void Scan_A_Returns_50()
+        public void Scan_A_returns_50()
         {
-            var shoppingCart = new ShoppingCart();
+            _shoppingCart.Scan(new Product("A"));
 
-            shoppingCart.Scan(new Product("A"));
-
-            Assert.AreEqual(new Money(50), shoppingCart.GetTotal());
-        }
-    }
-
-    public class ShoppingCart
-    {
-        private readonly List<Product> _scannedProducts;
-
-        public ShoppingCart()
-        {
-            _scannedProducts = new List<Product>();
+            Assert.AreEqual(new Money(50), _shoppingCart.GetTotal());
         }
 
-        public void Scan(Product product)
+        [TestMethod]
+        public void Scan_B_returns_30()
         {
-            _scannedProducts.Add(product);
+            _shoppingCart.Scan(new Product("B"));
+
+            Assert.AreEqual(new Money(30), _shoppingCart.GetTotal());
         }
 
-        public Money GetTotal()
+        [TestMethod]
+        public void Scan_all_products_returns_105()
         {
-            return new Money(50);
-        }
-    }
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("B"));
+            _shoppingCart.Scan(new Product("C"));
+            _shoppingCart.Scan(new Product("D"));
 
-    public class Product
-    {
-        private string Sku;
-
-        public Product(string sku)
-        {
-            Sku = sku;
+            Assert.AreEqual(new Money(105), _shoppingCart.GetTotal());
         }
 
-        public override bool Equals(object obj)
+        [TestMethod]
+        public void Scan_three_As_returns_130()
         {
-            return ((Product)obj).Sku == Sku;
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+
+            Assert.AreEqual(new Money(130), _shoppingCart.GetTotal());
         }
 
-        public override int GetHashCode()
+        [TestMethod]
+        public void Scan_six_As_returns_260()
         {
-            return Sku.GetHashCode();
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+
+            Assert.AreEqual(new Money(260), _shoppingCart.GetTotal());
         }
 
-        public override string ToString()
+        [TestMethod]
+        public void Scan_five_As_returns_230()
         {
-            return Sku;
-        }
-    }
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
+            _shoppingCart.Scan(new Product("A"));
 
-    public class Money
-    {
-        private int Value;
-
-        public Money(int value)
-        {
-            Value = value;
+            Assert.AreEqual(new Money(230), _shoppingCart.GetTotal());
         }
 
-        public override bool Equals(object obj)
+        [TestMethod]
+        public void Scan_2_Bs_returns_50()
         {
-            return ((Money)obj).Value == Value;
-        }
+            _shoppingCart.Scan(new Product("B"));
+            _shoppingCart.Scan(new Product("B"));
 
-        public override int GetHashCode()
-        {
-            return Value.GetHashCode();
+            Assert.AreEqual(new Money(50), _shoppingCart.GetTotal());
         }
-
-        public override string ToString()
-        {
-            return Value.ToString();
-        }
-    }
+    }    
 }

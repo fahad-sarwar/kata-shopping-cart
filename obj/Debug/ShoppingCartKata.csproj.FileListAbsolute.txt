@@ -5,3 +5,10 @@ C:\Git\kata-shopping-cart\ShoppingCartKata\bin\Debug\Microsoft.VisualStudio.Qual
 C:\Git\kata-shopping-cart\ShoppingCartKata\obj\Debug\ShoppingCartKata.csprojResolveAssemblyReference.cache
 C:\Git\kata-shopping-cart\ShoppingCartKata\obj\Debug\ShoppingCartKata.dll
 C:\Git\kata-shopping-cart\ShoppingCartKata\obj\Debug\ShoppingCartKata.pdb
+C:\Git\kata-shopping-cart\bin\Debug\ShoppingCartKata.dll
+C:\Git\kata-shopping-cart\bin\Debug\ShoppingCartKata.pdb
+C:\Git\kata-shopping-cart\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Git\kata-shopping-cart\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Git\kata-shopping-cart\obj\Debug\ShoppingCartKata.csprojResolveAssemblyReference.cache
+C:\Git\kata-shopping-cart\obj\Debug\ShoppingCartKata.dll
+C:\Git\kata-shopping-cart\obj\Debug\ShoppingCartKata.pdb

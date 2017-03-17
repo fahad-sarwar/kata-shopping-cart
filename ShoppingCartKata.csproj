@@ -50,6 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Discounter.cs" />
+    <Compile Include="DiscountRule.cs" />
+    <Compile Include="Money.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingCartSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
